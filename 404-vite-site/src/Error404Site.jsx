@@ -1,5 +1,21 @@
-import { Card, CardContent } from "./components/ui/card";
-import { Button } from "./components/ui/button";
+import React from "react";
+
+function Card({ children }) {
+  return <div className="border rounded-xl p-4 shadow bg-white">{children}</div>;
+}
+
+function CardContent({ children, className }) {
+  return <div className={className}>{children}</div>;
+}
+
+function Button({ children, variant }) {
+  const base = "px-4 py-2 rounded font-semibold";
+  const style =
+    variant === "outline"
+      ? "border border-gray-500 text-gray-700"
+      : "bg-red-600 text-white";
+  return <button className={base + " " + style}>{children}</button>;
+}
 
 export default function Error404Site() {
   return (
@@ -25,10 +41,10 @@ export default function Error404Site() {
           <CardContent className="p-4">
             <p className="text-md italic">“Liquidity Not Found.”</p>
             <p className="text-sm mt-2">
-              $404 is a cursed token built for traders who click first and think later...
+              $404 is a cursed token built for traders who click first and think later. It's a tribute to broken links, rugged pairs, and all the hope you once had. There's no whitepaper. No roadmap. No support. Just an error.
             </p>
             <p className="text-xs mt-2 text-muted-foreground">
-              It was meant to be a presale. Then the dev copy-pasted the wrong contract...
+              It was meant to be a presale. Then the dev copy-pasted the wrong contract. Then they vanished. Now $404 is loose on Solana. And it just won’t die.
             </p>
           </CardContent>
         </Card>
